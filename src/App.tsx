@@ -99,6 +99,10 @@ const Navbar = () => {
             Reviews
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
           </a>
+          <a href="#faq" className="hover:text-[#00A8C5] transition-colors relative group">
+            FAQ
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+          </a>
           <a href="#about" className="hover:text-[#00A8C5] transition-colors relative group">
             About
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
@@ -151,6 +155,7 @@ const Navbar = () => {
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('services'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">Services</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('gallery'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">Gallery</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('reviews'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">Reviews</button>
+        <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('faq'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">FAQ</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('about'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">About</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('contact'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">Contact</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('contact'); }} className="mt-8 bg-[#00A8C5] text-white px-12 py-4 rounded-full text-lg font-bold uppercase tracking-widest">
@@ -322,12 +327,6 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'
     },
     { 
-      id: '03', 
-      title: 'Post-Construction', 
-      desc: 'Meticulous final touch for new developments and renovations.',
-      image: 'https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&q=80&w=800'
-    },
-    { 
       id: '04', 
       title: 'Specialized', 
       desc: 'Medical and industrial grade hygiene for sensitive environments.',
@@ -349,7 +348,7 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
             </motion.span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.8] text-[#003B5C]">
               SYSTEMATIC <br /> 
-              <span className="text-transparent stroke-text">HYGIENE.</span>
+              <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">HYGIENE.</span>
             </h2>
           </div>
           <div className="max-w-md">
@@ -468,18 +467,18 @@ const GallerySection = () => {
         'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1200',
     },
     {
-      title: 'Post-Construction Turnover',
-      before:
-        'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200',
-      after:
-        'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=1200',
-    },
-    {
       title: 'Bedroom Detailing',
       before:
         'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&q=80&w=1200',
       after:
         'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=1200',
+    },
+    {
+      title: 'Laundry Room Reset',
+      before:
+        'https://picsum.photos/seed/yesitsclean-laundry-before/1200/900',
+      after:
+        'https://picsum.photos/seed/yesitsclean-laundry-after/1200/900',
     },
   ];
 
@@ -496,7 +495,7 @@ const GallerySection = () => {
               Before / After
             </motion.span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-[#003B5C]">
-              REAL RESULTS. <span className="text-transparent stroke-text">REAL CLEAN.</span>
+              REAL RESULTS. <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">REAL CLEAN.</span>
             </h2>
           </div>
           <p className="max-w-xl text-[#003B5C]/60 text-lg lg:text-xl font-light leading-relaxed">
@@ -598,7 +597,14 @@ const GallerySection = () => {
 };
 
 const ReviewsSection = () => {
-  const reviews = [
+  type Review = {
+    name: string;
+    role: string;
+    quote: string;
+    rating: number;
+  };
+
+  const initialReviews: Review[] = [
     {
       name: 'A. Rivera',
       role: 'Residential Client',
@@ -614,13 +620,22 @@ const ReviewsSection = () => {
       rating: 5,
     },
     {
-      name: 'M. Lee',
-      role: 'Post-Construction',
+      name: 'M. Cruz',
+      role: 'Homeowner',
       quote:
-        'They caught details we missed during punch-list. Dust-free, streak-free, ready for turnover the same day.',
+        'Fast, detailed, and thorough. Every corner looked brand new, and the place felt healthier right away.',
+      rating: 5,
+    },
+    {
+      name: 'R. Tan',
+      role: 'Facility Supervisor',
+      quote:
+        'Professional crew with excellent consistency. The checklist approach shows—our turnover time improved a lot.',
       rating: 5,
     },
   ];
+
+  const [reviews, setReviews] = useState<Review[]>(initialReviews);
 
   const initialsFor = (name: string) => {
     const cleaned = name.replace(/[^a-zA-Z.\s]/g, '').trim();
@@ -643,6 +658,42 @@ const ReviewsSection = () => {
   const scrollByCards = (delta: number) => {
     scrollToIndex(activeIndex + delta);
   };
+
+  useEffect(() => {
+    const reviewsEndpoint = import.meta.env.VITE_REVIEWS_ENDPOINT as string | undefined;
+    if (!reviewsEndpoint) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(reviewsEndpoint);
+        if (!res.ok) return;
+        const data = await res.json();
+
+        if (!Array.isArray(data)) return;
+        const normalized: Review[] = data
+          .map((r) => ({
+            name: String(r?.name ?? ''),
+            role: String(r?.role ?? ''),
+            quote: String(r?.quote ?? ''),
+            rating: Number(r?.rating ?? 0),
+          }))
+          .filter((r) => r.name && r.role && r.quote && r.rating >= 1 && r.rating <= 5);
+
+        if (!cancelled && normalized.length > 0) setReviews(normalized);
+      } catch {
+        // Keep initialReviews as fallback if fetch fails.
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    setActiveIndex((idx) => Math.min(idx, Math.max(0, reviews.length - 1)));
+  }, [reviews.length]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -692,7 +743,7 @@ const ReviewsSection = () => {
               Client Feedback
             </motion.span>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-[#003B5C]">
-              TRUSTED. <span className="text-transparent stroke-text">PROVEN.</span>
+              TRUSTED. <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">PROVEN.</span>
             </h2>
           </div>
           <p className="max-w-xl text-[#003B5C]/60 text-lg lg:text-xl font-light leading-relaxed">
@@ -840,6 +891,153 @@ const ReviewsSection = () => {
   );
 };
 
+const FAQSection = () => {
+  const faqs = [
+    {
+      id: 'areas',
+      q: 'Do you serve Boston and nearby areas?',
+      a: 'Yes. We focus on Boston, MA and nearby communities. If you’re outside our usual area, send us a message and we’ll confirm availability.',
+    },
+    {
+      id: 'supplies',
+      q: 'Do you bring supplies and equipment?',
+      a: 'We come prepared with professional cleaning tools and eco-conscious options. If you have preferred products or special requirements, tell us during booking.',
+    },
+    {
+      id: 'deep-clean',
+      q: 'What’s included in a deep clean?',
+      a: 'A checklist-based approach that targets detail areas like kitchens, bathrooms, high-touch surfaces, visible dust, and thorough surface finishing—so the results look and feel refreshed.',
+    },
+    {
+      id: 'timeline',
+      q: 'How long will the cleaning take?',
+      a: 'It depends on the size and condition of your space. After your message, we’ll recommend an estimated timeframe based on what you need.',
+    },
+    {
+      id: 'recurring',
+      q: 'Can I schedule recurring cleaning?',
+      a: 'Yes. Weekly, bi-weekly, or monthly maintenance is available. We’ll help you set a plan that fits your routine.',
+    },
+    {
+      id: 'changes',
+      q: 'What if I need to reschedule or make changes?',
+      a: 'Just let us know as early as possible. We’ll do our best to accommodate updates based on our schedule.',
+    },
+  ];
+
+  const [openId, setOpenId] = useState<string>(() => faqs[0]?.id ?? '');
+
+  return (
+    <section id="faq" className="bg-[#F8F9FA] py-24 lg:py-48 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-14 lg:mb-20">
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-[#00A8C5] font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
+            >
+              FAQ
+            </motion.span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-[#003B5C]">
+              Questions? <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">Answers.</span>
+            </h2>
+          </div>
+
+          <p className="max-w-xl text-[#003B5C]/60 text-lg lg:text-xl font-light leading-relaxed">
+            Quick answers about our process and deep cleaning—so you can book with confidence.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+          <div className="lg:col-span-7 space-y-4">
+            {faqs.map((item) => {
+              const isOpen = item.id === openId;
+              const panelId = `faq-panel-${item.id}`;
+              return (
+                <div key={item.id} className="rounded-3xl border border-[#003B5C]/10 bg-white overflow-hidden">
+                  <button
+                    type="button"
+                    className="w-full text-left px-6 sm:px-8 py-6 flex items-start justify-between gap-6"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenId((prev) => (prev === item.id ? '' : item.id))}
+                  >
+                    <span className="font-display font-bold text-[#003B5C] text-lg sm:text-xl leading-snug">
+                      {item.q}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 w-10 h-10 rounded-full border border-[#003B5C]/15 flex items-center justify-center text-[#00A8C5] flex-shrink-0"
+                    >
+                      {isOpen ? '-' : '+'}
+                    </span>
+                  </button>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-label={item.q}
+                    className={`px-6 sm:px-8 pb-6 transition-all duration-300 overflow-hidden ${
+                      isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <p className="text-[#003B5C]/70 font-light leading-relaxed">{item.a}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            <div className="rounded-3xl border border-[#003B5C]/10 bg-white p-7 sm:p-8 shadow-sm">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-[#003B5C]/45 font-medium mb-5">
+                Ready when you are
+              </p>
+              <p className="text-[#003B5C] font-display font-bold text-2xl sm:text-3xl leading-tight">
+                Tell us what you need—get a free estimate.
+              </p>
+              <p className="mt-4 text-[#003B5C]/60 font-light leading-relaxed">
+                We’ll respond quickly with next steps and an estimated plan for your cleaning.
+              </p>
+              <button
+                type="button"
+                onClick={() => scrollToId('contact')}
+                className="mt-7 inline-flex items-center gap-4 bg-[#00A8C5] text-white px-7 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B5C] transition-all shadow-lg shadow-black/10"
+              >
+                Start with a free estimate
+                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <ArrowRight size={18} />
+                </span>
+              </button>
+            </div>
+
+            <div className="rounded-3xl border border-[#003B5C]/10 bg-[#003B5C] text-white p-7 sm:p-8 overflow-hidden relative">
+              <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-[#00A8C5]/20 blur-3xl" />
+              <p className="text-[10px] uppercase tracking-[0.35em] text-white/70 font-medium mb-5 relative">
+                What you can expect
+              </p>
+              <div className="space-y-4 relative">
+                <div className="flex items-start gap-3">
+                  <Check className="mt-1 text-[#00A8C5]" size={18} />
+                  <p className="font-light leading-relaxed">A systematic checklist for consistent results.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="mt-1 text-[#00A8C5]" size={18} />
+                  <p className="font-light leading-relaxed">Careful attention to detail areas people notice.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="mt-1 text-[#00A8C5]" size={18} />
+                  <p className="font-light leading-relaxed">Clear communication from first message to completion.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const AboutSection = () => {
   return (
     <section id="about" className="bg-[#E5E7EB] py-24 lg:py-48 overflow-hidden">
@@ -932,6 +1130,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
   });
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     onReadyForFocus(() => nameInputRef.current?.focus());
@@ -942,6 +1141,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
   const onChange = (key: keyof ContactFormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const next = { ...values, [key]: e.target.value };
     setValues(next);
+    if (submitError) setSubmitError(null);
     if (status === 'success') setStatus('idle');
     if (errors[key]) {
       const nextErrors = { ...errors };
@@ -957,9 +1157,41 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
     if (Object.keys(nextErrors).length > 0) return;
 
     setStatus('submitting');
-    // Demo submit (no backend wired). Replace with your API call.
-    await new Promise((r) => setTimeout(r, 700));
-    setStatus('success');
+    setSubmitError(null);
+
+    const leadsEndpoint = import.meta.env.VITE_LEADS_ENDPOINT as string | undefined;
+
+    // If you haven't wired your backend yet, keep the current demo behavior.
+    if (!leadsEndpoint) {
+      await new Promise((r) => setTimeout(r, 700));
+      setStatus('success');
+      return;
+    }
+
+    const payload = {
+      name: values.name.trim(),
+      email: values.email.trim(),
+      phone: values.phone.trim(),
+      message: values.message.trim(),
+    };
+
+    try {
+      const res = await fetch(leadsEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        throw new Error(text || `Request failed (${res.status})`);
+      }
+
+      setStatus('success');
+    } catch (err) {
+      setStatus('idle');
+      setSubmitError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -974,27 +1206,42 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
               <div className="group cursor-pointer">
                 <p className="text-[#003B5C]/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Email</p>
                 <a
-                  href="mailto:hello@yesitsclean.com"
-                  className="block text-lg sm:text-2xl lg:text-4xl font-display font-medium group-hover:text-[#00A8C5] transition-colors break-all"
+                  href="mailto:Yesitscleanservices@gmail.com"
+                  className="block text-lg sm:text-2xl lg:text-3xl font-display font-medium group-hover:text-[#00A8C5] transition-colors leading-tight"
                 >
-                  hello@yesitsclean.com
+                  Yesitscleanservices<wbr />@gmail.com
                 </a>
               </div>
               <div className="group cursor-pointer">
                 <p className="text-[#003B5C]/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Phone</p>
                 <a
-                  href="tel:+15550001234"
-                  className="block text-lg sm:text-2xl lg:text-4xl font-display font-medium group-hover:text-[#00A8C5] transition-colors"
+                  href="tel:+16035128936"
+                  className="block text-lg sm:text-2xl lg:text-3xl font-display font-medium group-hover:text-[#00A8C5] transition-colors"
                 >
-                  +1 555 000 1234
+                  603 512-8936
                 </a>
               </div>
               <div className="group">
                 <p className="text-[#003B5C]/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Location</p>
                 <p className="text-base sm:text-xl lg:text-2xl font-display font-medium">
                   123 Clean Street, Suite 400<br />
-                  San Francisco, CA 94105
+                  Boston, MA 02110
                 </p>
+              </div>
+            </div>
+
+            {/* Mobile: map should appear right below Location details */}
+            <div className="lg:hidden mt-10">
+              <div className="w-full h-56 sm:h-64 overflow-hidden rounded-2xl shadow-lg border border-[#003B5C]/10">
+                <iframe
+                  title="Yes It's Clean Location"
+                  src="https://www.google.com/maps?q=123+Clean+Street,+Suite+400,+Boston,+MA+02110&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -1082,6 +1329,12 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
                   </div>
                 ) : null}
 
+                {submitError ? (
+                  <p role="alert" className="text-sm text-red-600 -mt-4">
+                    {submitError}
+                  </p>
+                ) : null}
+
                 <button type="submit" disabled={!canSubmit} className="flex items-center gap-4 group disabled:opacity-50 disabled:cursor-not-allowed">
                   <span className="text-xl lg:text-2xl font-display font-bold uppercase">
                     {status === 'submitting' ? 'Sending...' : 'Send Inquiry'}
@@ -1095,11 +1348,11 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
 
           </div>
 
-          <div className="lg:col-span-12 mt-2 sm:mt-4 lg:mt-0">
+          <div className="lg:col-span-12 mt-2 sm:mt-4 lg:mt-0 hidden lg:block">
             <div className="w-full h-56 sm:h-64 lg:h-80 overflow-hidden rounded-2xl shadow-lg border border-[#003B5C]/10">
               <iframe
                 title="Yes It's Clean Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019078014948!2d-122.40000000000001!3d37.790000000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ3JzI0LjAiTiAxMjLCsDI0JzAwLjAiVw!5e0!3m2!1sen!2sus!4v1700000000000"
+                src="https://www.google.com/maps?q=123+Clean+Street,+Suite+400,+Boston,+MA+02110&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -1121,6 +1374,7 @@ const Footer = () => {
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#003B5C]/70">
           <button type="button" onClick={() => scrollToId('services')} className="hover:text-[#00A8C5] transition-colors">Services</button>
           <button type="button" onClick={() => scrollToId('reviews')} className="hover:text-[#00A8C5] transition-colors">Reviews</button>
+          <button type="button" onClick={() => scrollToId('faq')} className="hover:text-[#00A8C5] transition-colors">FAQ</button>
           <button type="button" onClick={() => scrollToId('about')} className="hover:text-[#00A8C5] transition-colors">About</button>
           <button type="button" onClick={() => scrollToId('contact')} className="hover:text-[#00A8C5] transition-colors">Contact</button>
           <a href="#" className="hover:text-[#00A8C5] transition-colors">Privacy</a>
@@ -1145,14 +1399,42 @@ export default function App() {
     window.setTimeout(() => contactFocusRef.current?.(), 300);
   };
 
+  const localBusinessJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CleaningService',
+    name: "Yes It's Clean",
+    email: 'Yesitscleanservices@gmail.com',
+    telephone: '+16035128936',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Clean Street, Suite 400',
+      addressLocality: 'Boston',
+      addressRegion: 'MA',
+      postalCode: '02110',
+      addressCountry: 'US',
+    },
+    serviceType: [
+      'Residential cleaning',
+      'Commercial cleaning',
+      'Eco-friendly hygiene',
+      'Detail-driven deep cleaning',
+    ],
+  } as const;
+
   return (
     <div id="top" className="font-sans selection:bg-[#00A8C5] selection:text-white">
+      <script
+        type="application/ld+json"
+        // JSON-LD: used by search engines to understand business data.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <Navbar />
       <main>
         <Hero onPrimaryCta={onPrimaryCta} />
         <ServiceSection onViewAll={() => scrollToId('services')} />
         <GallerySection />
         <ReviewsSection />
+        <FAQSection />
         <AboutSection />
         <ContactSection onReadyForFocus={(focusName) => { contactFocusRef.current = focusName; }} />
       </main>
