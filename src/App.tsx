@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 lg:px-12 py-6 flex justify-between items-center ${
-        isScrolled ? 'bg-[#003B5C]/90 backdrop-blur-xl border-b border-white/10 py-4' : 'bg-transparent'
+        isScrolled ? 'bg-primary/90 backdrop-blur-xl border-b border-white/10 py-4' : 'bg-transparent'
       }`}
     >
       <button
@@ -73,46 +73,46 @@ const Navbar = () => {
         onClick={() => scrollToId('top')}
         aria-label="Go to top"
       >
-        <div className="w-10 h-10 bg-[#00A8C5] rounded-full flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-12">Y</div>
+        <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-12">Y</div>
         <div className="flex flex-col">
           <span className="font-display font-bold tracking-tighter text-xl uppercase text-white leading-none">Yes It's Clean</span>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-[#00A8C5] font-medium">Premium Services</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-accent font-medium">Premium Services</span>
         </div>
       </button>
 
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-12">
         <div className="flex gap-10 font-display font-medium uppercase text-[11px] tracking-[0.2em] text-white/70">
-          <a href="#top" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#top" className="hover:text-accent transition-colors relative group">
             Home
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
-          <a href="#services" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#services" className="hover:text-accent transition-colors relative group">
             Services
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
-          <a href="#gallery" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#gallery" className="hover:text-accent transition-colors relative group">
             Gallery
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
-          <a href="#reviews" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#reviews" className="hover:text-accent transition-colors relative group">
             Reviews
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
-          <a href="#faq" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#faq" className="hover:text-accent transition-colors relative group">
             FAQ
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
-          <a href="#about" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#about" className="hover:text-accent transition-colors relative group">
             About
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
-          <a href="#contact" className="hover:text-[#00A8C5] transition-colors relative group">
+          <a href="#contact" className="hover:text-accent transition-colors relative group">
             Contact
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A8C5] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
         </div>
-        <a href="#contact" className="bg-white text-[#003B5C] px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-[#00A8C5] hover:text-white transition-all shadow-lg shadow-black/10">
+        <a href="#contact" className="bg-white text-primary px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-lg shadow-black/10">
           Book Now
         </a>
       </div>
@@ -140,7 +140,7 @@ const Navbar = () => {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className="fixed inset-0 bg-[#003B5C] z-[60] flex flex-col items-center justify-center gap-8 md:hidden min-h-screen"
+        className="fixed inset-0 bg-primary z-[60] flex flex-col items-center justify-center gap-8 md:hidden min-h-screen"
         style={{ pointerEvents: isMobileMenuOpen ? 'auto' : 'none' }}
       >
         <button 
@@ -158,7 +158,7 @@ const Navbar = () => {
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('faq'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">FAQ</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('about'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">About</button>
         <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('contact'); }} className="text-3xl font-display font-bold text-white uppercase tracking-widest">Contact</button>
-        <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('contact'); }} className="mt-8 bg-[#00A8C5] text-white px-12 py-4 rounded-full text-lg font-bold uppercase tracking-widest">
+        <button type="button" onClick={() => { setIsMobileMenuOpen(false); scrollToId('contact'); }} className="mt-8 bg-accent text-white px-12 py-4 rounded-full text-lg font-bold uppercase tracking-widest">
           Book Now
         </button>
       </motion.div>
@@ -196,7 +196,7 @@ const Hero = ({ onPrimaryCta }: { onPrimaryCta: () => void }) => {
   };
 
   return (
-    <section className="min-h-screen relative flex flex-col justify-end px-6 pt-32 lg:pt-40 pb-12 lg:pb-24 overflow-hidden bg-[#003B5C]">
+    <section className="min-h-screen relative flex flex-col justify-end px-6 pt-32 lg:pt-40 pb-12 lg:pb-24 overflow-hidden bg-primary">
       {/* Animated Background Image Side */}
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-1/2 lg:h-full z-0 overflow-hidden">
         <motion.div
@@ -219,9 +219,9 @@ const Hero = ({ onPrimaryCta }: { onPrimaryCta: () => void }) => {
           initial={{ x: "-100%" }}
           animate={{ x: "100%" }}
           transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
-          className="absolute inset-0 bg-[#00A8C5] z-10 mix-blend-overlay opacity-30"
+          className="absolute inset-0 bg-accent z-10 mix-blend-overlay opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#003B5C] via-transparent to-transparent lg:bg-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent lg:bg-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -231,8 +231,8 @@ const Hero = ({ onPrimaryCta }: { onPrimaryCta: () => void }) => {
           animate="visible"
         >
           <motion.div variants={itemVariants} className="overflow-hidden">
-            <p className="text-[#00A8C5] font-display font-medium uppercase tracking-[0.4em] text-xs sm:text-sm mb-6 flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-[#00A8C5]"></span>
+            <p className="text-accent font-display font-medium uppercase tracking-[0.4em] text-xs sm:text-sm mb-6 flex items-center gap-4">
+              <span className="w-12 h-[1px] bg-accent"></span>
               Professional Care / Est. 2016
             </p>
           </motion.div>
@@ -250,7 +250,7 @@ const Hero = ({ onPrimaryCta }: { onPrimaryCta: () => void }) => {
               <div className="overflow-hidden">
                 <motion.span 
                   variants={titleWordVariants}
-                  className="inline-block text-[#00A8C5]"
+                  className="inline-block text-accent"
                 >
                   CLEAN.
                 </motion.span>
@@ -269,7 +269,7 @@ const Hero = ({ onPrimaryCta }: { onPrimaryCta: () => void }) => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="button"
-                  className="w-20 h-20 lg:w-28 lg:h-28 rounded-full bg-[#00A8C5] text-white flex items-center justify-center hover:bg-white hover:text-[#003B5C] transition-colors group relative"
+                  className="w-20 h-20 lg:w-28 lg:h-28 rounded-full bg-accent text-white flex items-center justify-center hover:bg-white hover:text-primary transition-colors group relative"
                   onClick={onPrimaryCta}
                   aria-label="Start project - go to contact form"
                 >
@@ -335,34 +335,34 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
   ];
 
   return (
-    <section id="services" className="bg-[#F8F9FA] pt-24 lg:pt-48 pb-14 lg:pb-24 overflow-hidden">
+    <section id="services" className="bg-bg pt-24 lg:pt-48 pb-14 lg:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 lg:mb-32 gap-12">
           <div className="relative">
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-[#00A8C5] font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
+              className="text-accent font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
             >
               Our Expertise
             </motion.span>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.8] text-[#003B5C]">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.8] text-primary">
               SYSTEMATIC <br /> 
-              <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">HYGIENE.</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">HYGIENE.</span>
             </h2>
           </div>
           <div className="max-w-md">
-            <p className="text-[#003B5C]/60 text-lg lg:text-xl leading-relaxed font-light mb-8">
+            <p className="text-primary/60 text-lg lg:text-xl leading-relaxed font-light mb-8">
               We combine industrial-grade technology with meticulous human attention to create environments that breathe.
             </p>
             <div className="flex gap-4">
-              <div className="w-12 h-12 rounded-full border border-[#003B5C]/10 flex items-center justify-center text-[#003B5C]">
+              <div className="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center text-primary">
                 <Clock size={18} />
               </div>
-              <div className="w-12 h-12 rounded-full border border-[#003B5C]/10 flex items-center justify-center text-[#003B5C]">
+              <div className="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center text-primary">
                 <Shield size={18} />
               </div>
-              <div className="w-12 h-12 rounded-full border border-[#003B5C]/10 flex items-center justify-center text-[#003B5C]">
+              <div className="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center text-primary">
                 <Sparkles size={18} />
               </div>
             </div>
@@ -376,7 +376,7 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group relative border-b border-[#003B5C]/10 py-8 lg:py-20 flex flex-col lg:flex-row justify-between items-start lg:items-center transition-all cursor-pointer"
+              className="group relative border-b border-primary/10 py-8 lg:py-20 flex flex-col lg:flex-row justify-between items-start lg:items-center transition-all cursor-pointer"
             >
               {/* Hover Image Reveal */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-500 z-20 hidden lg:block overflow-hidden rounded-2xl rotate-6 group-hover:rotate-0 scale-90 group-hover:scale-100 shadow-2xl">
@@ -390,26 +390,26 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
 
               <div className="flex items-baseline z-10 w-full pr-8 lg:pr-0">
                 <div className="flex flex-col">
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-display font-bold uppercase tracking-tighter text-[#003B5C] group-hover:text-[#00A8C5] transition-colors duration-300 break-words">
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-display font-bold uppercase tracking-tighter text-primary group-hover:text-accent transition-colors duration-300 break-words">
                     {s.title}
                   </h3>
-                  <p className="text-[#003B5C]/40 group-hover:text-[#003B5C]/70 transition-colors max-w-sm mt-4 lg:hidden text-sm sm:text-base">
+                  <p className="text-primary/40 group-hover:text-primary/70 transition-colors max-w-sm mt-4 lg:hidden text-sm sm:text-base">
                     {s.desc}
                   </p>
                 </div>
               </div>
 
               <div className="hidden lg:flex items-center gap-12 z-10">
-                <p className="text-[#003B5C]/40 group-hover:text-[#003B5C]/70 transition-colors max-w-xs text-right font-light text-lg">
+                <p className="text-primary/40 group-hover:text-primary/70 transition-colors max-w-xs text-right font-light text-lg">
                   {s.desc}
                 </p>
-                <div className="w-16 h-16 rounded-full border border-[#003B5C]/10 flex items-center justify-center group-hover:bg-[#003B5C] group-hover:text-white transition-all duration-300">
+                <div className="w-16 h-16 rounded-full border border-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <Plus className="group-hover:rotate-90 transition-transform" />
                 </div>
               </div>
               
               {/* Mobile Arrow */}
-              <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 text-[#00A8C5]">
+              <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 text-accent">
                 <ArrowRight />
               </div>
             </motion.div>
@@ -419,14 +419,14 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-12 lg:mt-16 flex flex-col lg:flex-row items-center justify-between gap-8 border-t border-[#003B5C]/10 pt-10"
+          className="mt-12 lg:mt-16 flex flex-col lg:flex-row items-center justify-between gap-8 border-t border-primary/10 pt-10"
         >
-          <p className="text-[#003B5C]/60 font-medium uppercase tracking-widest text-xs">
+          <p className="text-primary/60 font-medium uppercase tracking-widest text-xs">
             Trusted by 500+ clients nationwide
           </p>
-          <button type="button" onClick={onViewAll} className="flex items-center gap-4 text-[#003B5C] font-bold uppercase tracking-widest group">
+          <button type="button" onClick={onViewAll} className="flex items-center gap-4 text-primary font-bold uppercase tracking-widest group">
             View All Services 
-            <span className="w-12 h-12 rounded-full border border-[#003B5C] flex items-center justify-center group-hover:bg-[#003B5C] group-hover:text-white transition-all">
+            <span className="w-12 h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
               <ArrowRight size={20} />
             </span>
           </button>
@@ -483,22 +483,22 @@ const GallerySection = () => {
   ];
 
   return (
-    <section id="gallery" className="bg-[#F8F9FA] py-24 lg:py-48 overflow-hidden">
+    <section id="gallery" className="bg-bg py-24 lg:py-48 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-14 lg:mb-20">
           <div>
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-[#00A8C5] font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
+              className="text-accent font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
             >
               Before / After
             </motion.span>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-[#003B5C]">
-              REAL RESULTS. <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">REAL CLEAN.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-primary">
+              REAL RESULTS. <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">REAL CLEAN.</span>
             </h2>
           </div>
-          <p className="max-w-xl text-[#003B5C]/60 text-lg lg:text-xl font-light leading-relaxed">
+          <p className="max-w-xl text-primary/60 text-lg lg:text-xl font-light leading-relaxed">
             A quick look at what “meticulous” actually means. Each project is handled with a checklist-based system and
             detailed finish work.
           </p>
@@ -511,18 +511,18 @@ const GallerySection = () => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="group overflow-hidden rounded-3xl border border-[#003B5C]/10 bg-white shadow-sm hover:shadow-2xl hover:shadow-[#003B5C]/10 transition-all"
+              className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all"
             >
               <div className="px-7 pt-7 pb-6 sm:px-8">
-                <p className="text-[10px] uppercase tracking-[0.35em] text-[#003B5C]/45">Project</p>
-                <h3 className="mt-2 font-display font-bold uppercase tracking-widest text-[#003B5C] text-lg sm:text-xl">
+                <p className="text-[10px] uppercase tracking-[0.35em] text-primary/45">Project</p>
+                <h3 className="mt-2 font-display font-bold uppercase tracking-widest text-primary text-lg sm:text-xl">
                   {p.title}
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#003B5C]/10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-primary/10">
                 <div className="relative bg-white">
-                  <span className="absolute left-4 top-4 z-10 rounded-full bg-[#003B5C]/85 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white">
+                  <span className="absolute left-4 top-4 z-10 rounded-full bg-primary/85 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white">
                     Before
                   </span>
                   <img
@@ -537,7 +537,7 @@ const GallerySection = () => {
                   />
                 </div>
                 <div className="relative bg-white">
-                  <span className="absolute left-4 top-4 z-10 rounded-full bg-[#00A8C5]/90 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white">
+                  <span className="absolute left-4 top-4 z-10 rounded-full bg-accent/90 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white">
                     After
                   </span>
                   <img
@@ -554,16 +554,16 @@ const GallerySection = () => {
               </div>
 
               <div className="px-7 py-6 sm:px-8 flex items-center justify-between gap-6">
-                <p className="text-[#003B5C]/55 text-xs sm:text-sm uppercase tracking-[0.25em]">
+                <p className="text-primary/55 text-xs sm:text-sm uppercase tracking-[0.25em]">
                   Detail-driven finish
                 </p>
                 <button
                   type="button"
                   onClick={() => scrollToId('contact')}
-                  className="inline-flex items-center gap-3 text-[#003B5C] font-bold uppercase tracking-widest group/button text-xs sm:text-sm"
+                  className="inline-flex items-center gap-3 text-primary font-bold uppercase tracking-widest group/button text-xs sm:text-sm"
                 >
                   Get a quote
-                  <span className="w-10 h-10 rounded-full border border-[#003B5C] flex items-center justify-center group-hover/button:bg-[#003B5C] group-hover/button:text-white transition-all">
+                  <span className="w-10 h-10 rounded-full border border-primary flex items-center justify-center group-hover/button:bg-primary group-hover/button:text-white transition-all">
                     <ArrowRight size={18} />
                   </span>
                 </button>
@@ -575,18 +575,18 @@ const GallerySection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-16 lg:mt-24 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-[#003B5C]/10 pt-10"
+          className="mt-16 lg:mt-24 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-primary/10 pt-10"
         >
-          <p className="text-[#003B5C]/60 font-medium uppercase tracking-widest text-xs text-center sm:text-left">
+          <p className="text-primary/60 font-medium uppercase tracking-widest text-xs text-center sm:text-left">
             Want your space to look like this?
           </p>
           <button
             type="button"
             onClick={() => scrollToId('contact')}
-            className="inline-flex items-center gap-4 text-[#003B5C] font-bold uppercase tracking-widest group"
+            className="inline-flex items-center gap-4 text-primary font-bold uppercase tracking-widest group"
           >
             Start with a free estimate
-            <span className="w-12 h-12 rounded-full border border-[#003B5C] flex items-center justify-center group-hover:bg-[#003B5C] group-hover:text-white transition-all">
+            <span className="w-12 h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
               <ArrowRight size={20} />
             </span>
           </button>
@@ -738,15 +738,15 @@ const ReviewsSection = () => {
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-[#00A8C5] font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
+              className="text-accent font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
             >
               Client Feedback
             </motion.span>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-[#003B5C]">
-              TRUSTED. <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">PROVEN.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-primary">
+              TRUSTED. <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">PROVEN.</span>
             </h2>
           </div>
-          <p className="max-w-xl text-[#003B5C]/60 text-lg lg:text-xl font-light leading-relaxed">
+          <p className="max-w-xl text-primary/60 text-lg lg:text-xl font-light leading-relaxed">
             Social proof matters. Here’s what clients say after we restore their space to a higher standard.
           </p>
         </div>
@@ -756,7 +756,7 @@ const ReviewsSection = () => {
             <button
               type="button"
               onClick={() => scrollByCards(-1)}
-              className="w-12 h-12 rounded-full border border-[#003B5C]/15 hover:border-[#00A8C5]/40 hover:text-[#00A8C5] transition-colors flex items-center justify-center"
+              className="w-12 h-12 rounded-full border border-primary/15 hover:border-accent/40 hover:text-accent transition-colors flex items-center justify-center"
               aria-label="Previous review"
             >
               <ArrowRight className="rotate-180" size={18} />
@@ -764,7 +764,7 @@ const ReviewsSection = () => {
             <button
               type="button"
               onClick={() => scrollByCards(1)}
-              className="w-12 h-12 rounded-full border border-[#003B5C]/15 hover:border-[#00A8C5]/40 hover:text-[#00A8C5] transition-colors flex items-center justify-center"
+              className="w-12 h-12 rounded-full border border-primary/15 hover:border-accent/40 hover:text-accent transition-colors flex items-center justify-center"
               aria-label="Next review"
             >
               <ArrowRight size={18} />
@@ -785,30 +785,30 @@ const ReviewsSection = () => {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06 }}
-                className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[48%] lg:w-[32%] group relative overflow-hidden rounded-3xl border border-[#003B5C]/10 bg-gradient-to-b from-white to-[#F8F9FA] p-8 lg:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#003B5C]/10 flex flex-col min-h-[360px]"
+                className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[48%] lg:w-[32%] group relative overflow-hidden rounded-3xl border border-primary/10 bg-gradient-to-b from-white to-bg p-8 lg:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 flex flex-col min-h-[360px]"
               >
               {/* Accent glow */}
-              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-[#00A8C5]/20 blur-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(0,168,197,0.18),transparent_55%)] opacity-60" />
+              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-accent/20 blur-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(var(--color-accent-rgb),0.18),transparent_55%)] opacity-60" />
 
               {/* Big quote mark */}
-              <div aria-hidden="true" className="pointer-events-none absolute -top-2 right-6 text-[8rem] leading-none text-[#003B5C]/5 font-display select-none">
+              <div aria-hidden="true" className="pointer-events-none absolute -top-2 right-6 text-[8rem] leading-none text-primary/5 font-display select-none">
                 “
               </div>
 
               <div className="relative flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-6">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="h-12 w-12 rounded-full bg-[#003B5C] text-white flex items-center justify-center font-display font-bold tracking-tight">
+                    <div className="h-12 w-12 rounded-full bg-primary text-white flex items-center justify-center font-display font-bold tracking-tight">
                       {initialsFor(r.name)}
                     </div>
-                    <div className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full bg-[#00A8C5] border-2 border-white" />
+                    <div className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full bg-accent border-2 border-white" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-[#003B5C] uppercase tracking-widest text-sm">
+                    <p className="font-display font-bold text-primary uppercase tracking-widest text-sm">
                       {r.name}
                     </p>
-                    <p className="text-[#003B5C]/50 text-xs uppercase tracking-[0.25em] mt-2">
+                    <p className="text-primary/50 text-xs uppercase tracking-[0.25em] mt-2">
                       {r.role}
                     </p>
                   </div>
@@ -819,7 +819,7 @@ const ReviewsSection = () => {
                     <Star
                       key={idx}
                       aria-hidden="true"
-                      className={`w-4 h-4 sm:w-[18px] sm:h-[18px] ${idx < r.rating ? 'text-[#00A8C5]' : 'text-[#003B5C]/20'}`}
+                      className={`w-4 h-4 sm:w-[18px] sm:h-[18px] ${idx < r.rating ? 'text-accent' : 'text-primary/20'}`}
                       fill={idx < r.rating ? 'currentColor' : 'none'}
                     />
                   ))}
@@ -828,7 +828,7 @@ const ReviewsSection = () => {
               </div>
 
               <p
-                className="relative mt-7 text-[#003B5C]/70 text-lg leading-relaxed font-light flex-1"
+                className="relative mt-7 text-primary/70 text-lg leading-relaxed font-light flex-1"
                 style={{
                   display: '-webkit-box',
                   WebkitLineClamp: 5,
@@ -839,12 +839,12 @@ const ReviewsSection = () => {
                 {r.quote}
               </p>
 
-              <div className="relative mt-10 pt-6 border-t border-[#003B5C]/10 flex items-center justify-between">
-                <p className="text-[#003B5C]/50 text-xs uppercase tracking-[0.25em]">
+              <div className="relative mt-10 pt-6 border-t border-primary/10 flex items-center justify-between">
+                <p className="text-primary/50 text-xs uppercase tracking-[0.25em]">
                   Verified client
                 </p>
-                <div className="h-[1px] flex-1 mx-4 bg-[#003B5C]/10" />
-                <p className="text-[#003B5C] text-xs uppercase tracking-[0.25em] font-medium">
+                <div className="h-[1px] flex-1 mx-4 bg-primary/10" />
+                <p className="text-primary text-xs uppercase tracking-[0.25em] font-medium">
                   Premium Service
                 </p>
               </div>
@@ -861,7 +861,7 @@ const ReviewsSection = () => {
               onClick={() => scrollToIndex(idx)}
               aria-label={`Go to review ${idx + 1}`}
               className={`h-2.5 rounded-full transition-all ${
-                idx === activeIndex ? 'w-10 bg-[#00A8C5]' : 'w-2.5 bg-[#003B5C]/15 hover:bg-[#003B5C]/25'
+                idx === activeIndex ? 'w-10 bg-accent' : 'w-2.5 bg-primary/15 hover:bg-primary/25'
               }`}
             />
           ))}
@@ -870,18 +870,18 @@ const ReviewsSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-16 lg:mt-24 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-[#003B5C]/10 pt-10"
+          className="mt-16 lg:mt-24 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-primary/10 pt-10"
         >
-          <p className="text-[#003B5C]/60 font-medium uppercase tracking-widest text-xs text-center sm:text-left">
+          <p className="text-primary/60 font-medium uppercase tracking-widest text-xs text-center sm:text-left">
             Average rating: 5.0 / 5.0 • Verified client feedback
           </p>
           <button
             type="button"
             onClick={() => scrollToId('contact')}
-            className="inline-flex items-center gap-4 text-[#003B5C] font-bold uppercase tracking-widest group"
+            className="inline-flex items-center gap-4 text-primary font-bold uppercase tracking-widest group"
           >
             Request a Quote
-            <span className="w-12 h-12 rounded-full border border-[#003B5C] flex items-center justify-center group-hover:bg-[#003B5C] group-hover:text-white transition-all">
+            <span className="w-12 h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
               <ArrowRight size={20} />
             </span>
           </button>
@@ -928,23 +928,23 @@ const FAQSection = () => {
   const [openId, setOpenId] = useState<string>(() => faqs[0]?.id ?? '');
 
   return (
-    <section id="faq" className="bg-[#F8F9FA] py-24 lg:py-48 overflow-hidden">
+    <section id="faq" className="bg-bg py-24 lg:py-48 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-14 lg:mb-20">
           <div>
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-[#00A8C5] font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
+              className="text-accent font-display font-bold text-sm uppercase tracking-[0.5em] mb-4 block"
             >
               FAQ
             </motion.span>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-[#003B5C]">
-              Questions? <span className="bg-gradient-to-r from-[#003B5C] to-[#00A8C5] bg-clip-text text-transparent">Answers.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[0.9] text-primary">
+              Questions? <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Answers.</span>
             </h2>
           </div>
 
-          <p className="max-w-xl text-[#003B5C]/60 text-lg lg:text-xl font-light leading-relaxed">
+          <p className="max-w-xl text-primary/60 text-lg lg:text-xl font-light leading-relaxed">
             Quick answers about our process and deep cleaning—so you can book with confidence.
           </p>
         </div>
@@ -955,7 +955,7 @@ const FAQSection = () => {
               const isOpen = item.id === openId;
               const panelId = `faq-panel-${item.id}`;
               return (
-                <div key={item.id} className="rounded-3xl border border-[#003B5C]/10 bg-white overflow-hidden">
+                <div key={item.id} className="rounded-3xl border border-primary/10 bg-white overflow-hidden">
                   <button
                     type="button"
                     className="w-full text-left px-6 sm:px-8 py-6 flex items-start justify-between gap-6"
@@ -963,12 +963,12 @@ const FAQSection = () => {
                     aria-controls={panelId}
                     onClick={() => setOpenId((prev) => (prev === item.id ? '' : item.id))}
                   >
-                    <span className="font-display font-bold text-[#003B5C] text-lg sm:text-xl leading-snug">
+                    <span className="font-display font-bold text-primary text-lg sm:text-xl leading-snug">
                       {item.q}
                     </span>
                     <span
                       aria-hidden="true"
-                      className="mt-1 w-10 h-10 rounded-full border border-[#003B5C]/15 flex items-center justify-center text-[#00A8C5] flex-shrink-0"
+                      className="mt-1 w-10 h-10 rounded-full border border-primary/15 flex items-center justify-center text-accent flex-shrink-0"
                     >
                       {isOpen ? '-' : '+'}
                     </span>
@@ -981,7 +981,7 @@ const FAQSection = () => {
                       isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <p className="text-[#003B5C]/70 font-light leading-relaxed">{item.a}</p>
+                    <p className="text-primary/70 font-light leading-relaxed">{item.a}</p>
                   </div>
                 </div>
               );
@@ -989,20 +989,20 @@ const FAQSection = () => {
           </div>
 
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="rounded-3xl border border-[#003B5C]/10 bg-white p-7 sm:p-8 shadow-sm">
-              <p className="text-[10px] uppercase tracking-[0.35em] text-[#003B5C]/45 font-medium mb-5">
+            <div className="rounded-3xl border border-primary/10 bg-white p-7 sm:p-8 shadow-sm">
+              <p className="text-[10px] uppercase tracking-[0.35em] text-primary/45 font-medium mb-5">
                 Ready when you are
               </p>
-              <p className="text-[#003B5C] font-display font-bold text-2xl sm:text-3xl leading-tight">
+              <p className="text-primary font-display font-bold text-2xl sm:text-3xl leading-tight">
                 Tell us what you need—get a free estimate.
               </p>
-              <p className="mt-4 text-[#003B5C]/60 font-light leading-relaxed">
+              <p className="mt-4 text-primary/60 font-light leading-relaxed">
                 We’ll respond quickly with next steps and an estimated plan for your cleaning.
               </p>
               <button
                 type="button"
                 onClick={() => scrollToId('contact')}
-                className="mt-7 inline-flex items-center gap-4 bg-[#00A8C5] text-white px-7 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-[#003B5C] transition-all shadow-lg shadow-black/10"
+                className="mt-7 inline-flex items-center gap-4 bg-accent text-white px-7 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all shadow-lg shadow-black/10"
               >
                 Start with a free estimate
                 <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
@@ -1011,22 +1011,22 @@ const FAQSection = () => {
               </button>
             </div>
 
-            <div className="rounded-3xl border border-[#003B5C]/10 bg-[#003B5C] text-white p-7 sm:p-8 overflow-hidden relative">
-              <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-[#00A8C5]/20 blur-3xl" />
+            <div className="rounded-3xl border border-primary/10 bg-primary text-white p-7 sm:p-8 overflow-hidden relative">
+              <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-accent/20 blur-3xl" />
               <p className="text-[10px] uppercase tracking-[0.35em] text-white/70 font-medium mb-5 relative">
                 What you can expect
               </p>
               <div className="space-y-4 relative">
                 <div className="flex items-start gap-3">
-                  <Check className="mt-1 text-[#00A8C5]" size={18} />
+                  <Check className="mt-1 text-accent" size={18} />
                   <p className="font-light leading-relaxed">A systematic checklist for consistent results.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Check className="mt-1 text-[#00A8C5]" size={18} />
+                  <Check className="mt-1 text-accent" size={18} />
                   <p className="font-light leading-relaxed">Careful attention to detail areas people notice.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Check className="mt-1 text-[#00A8C5]" size={18} />
+                  <Check className="mt-1 text-accent" size={18} />
                   <p className="font-light leading-relaxed">Clear communication from first message to completion.</p>
                 </div>
               </div>
@@ -1040,7 +1040,7 @@ const FAQSection = () => {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="bg-[#E5E7EB] py-24 lg:py-48 overflow-hidden">
+    <section id="about" className="bg-about py-24 lg:py-48 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="relative">
@@ -1056,7 +1056,7 @@ const AboutSection = () => {
                 referrerPolicy="no-referrer"
               />
             </motion.div>
-            <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-[#00A8C5] p-8 flex flex-col justify-end text-white hidden md:flex">
+            <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-accent p-8 flex flex-col justify-end text-white hidden md:flex">
               <Sparkles size={48} className="mb-4" />
               <p className="font-bold text-2xl leading-tight">Meticulous by Design.</p>
             </div>
@@ -1064,7 +1064,7 @@ const AboutSection = () => {
 
           <div className="space-y-12">
             <h2 className="text-4xl sm:text-5xl font-display font-bold leading-none uppercase">
-              The Standard of <span className="text-[#00A8C5]">Excellence</span> in Hygiene.
+              The Standard of <span className="text-accent">Excellence</span> in Hygiene.
             </h2>
             <div className="space-y-6 text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
               <p>
@@ -1195,7 +1195,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
   };
 
   return (
-    <section id="contact" className="bg-zinc-100 text-[#003B5C] py-24 lg:py-48">
+    <section id="contact" className="bg-surface text-primary py-24 lg:py-48">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-24">
           <div className="lg:col-span-5">
@@ -1204,25 +1204,25 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
             </h2>
             <div className="space-y-6 lg:space-y-8">
               <div className="group cursor-pointer">
-                <p className="text-[#003B5C]/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Email</p>
+                <p className="text-primary/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Email</p>
                 <a
                   href="mailto:Yesitscleanservices@gmail.com"
-                  className="block text-lg sm:text-2xl lg:text-3xl font-display font-medium group-hover:text-[#00A8C5] transition-colors leading-tight"
+                  className="block text-lg sm:text-2xl lg:text-3xl font-display font-medium group-hover:text-accent transition-colors leading-tight"
                 >
                   Yesitscleanservices<wbr />@gmail.com
                 </a>
               </div>
               <div className="group cursor-pointer">
-                <p className="text-[#003B5C]/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Phone</p>
+                <p className="text-primary/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Phone</p>
                 <a
                   href="tel:+16035128936"
-                  className="block text-lg sm:text-2xl lg:text-3xl font-display font-medium group-hover:text-[#00A8C5] transition-colors"
+                  className="block text-lg sm:text-2xl lg:text-3xl font-display font-medium group-hover:text-accent transition-colors"
                 >
                   603 512-8936
                 </a>
               </div>
               <div className="group">
-                <p className="text-[#003B5C]/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Location</p>
+                <p className="text-primary/40 uppercase tracking-widest text-[10px] sm:text-xs mb-2">Location</p>
                 <p className="text-base sm:text-xl lg:text-2xl font-display font-medium">
                   123 Clean Street, Suite 400<br />
                   Boston, MA 02110
@@ -1232,7 +1232,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
 
             {/* Mobile: map should appear right below Location details */}
             <div className="lg:hidden mt-10">
-              <div className="w-full h-56 sm:h-64 overflow-hidden rounded-2xl shadow-lg border border-[#003B5C]/10">
+              <div className="w-full h-56 sm:h-64 overflow-hidden rounded-2xl shadow-lg border border-primary/10">
                 <iframe
                   title="Yes It's Clean Location"
                   src="https://www.google.com/maps?q=123+Clean+Street,+Suite+400,+Boston,+MA+02110&output=embed"
@@ -1248,7 +1248,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
 
           <div className="flex flex-col justify-between mt-12 lg:mt-0 lg:col-span-7">
             <div className="space-y-12">
-              <p className="text-xl lg:text-2xl text-[#003B5C]/60 font-light leading-snug">
+              <p className="text-xl lg:text-2xl text-primary/60 font-light leading-snug">
                 Whether it's a one-time deep clean or a long-term maintenance partnership, we're ready to elevate your space.
               </p>
               <form className="space-y-8" onSubmit={onSubmit} noValidate>
@@ -1277,7 +1277,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
                   onChange={onChange('name')}
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? 'name-error' : undefined}
-                  className="w-full bg-transparent border-b border-[#003B5C]/20 py-4 outline-none focus:border-[#00A8C5] transition-colors font-display text-base sm:text-lg lg:text-xl"
+                  className="w-full bg-transparent border-b border-primary/20 py-4 outline-none focus:border-accent transition-colors font-display text-base sm:text-lg lg:text-xl"
                 />
                 {errors.name ? <p id="name-error" className="text-sm text-red-600 -mt-6">{errors.name}</p> : null}
 
@@ -1291,7 +1291,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
                   onChange={onChange('email')}
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className="w-full bg-transparent border-b border-[#003B5C]/20 py-4 outline-none focus:border-[#00A8C5] transition-colors font-display text-base sm:text-lg lg:text-xl"
+                  className="w-full bg-transparent border-b border-primary/20 py-4 outline-none focus:border-accent transition-colors font-display text-base sm:text-lg lg:text-xl"
                 />
                 {errors.email ? <p id="email-error" className="text-sm text-red-600 -mt-6">{errors.email}</p> : null}
 
@@ -1303,7 +1303,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
                   placeholder="PHONE NUMBER" 
                   value={values.phone}
                   onChange={onChange('phone')}
-                  className="w-full bg-transparent border-b border-[#003B5C]/20 py-4 outline-none focus:border-[#00A8C5] transition-colors font-display text-base sm:text-lg lg:text-xl"
+                  className="w-full bg-transparent border-b border-primary/20 py-4 outline-none focus:border-accent transition-colors font-display text-base sm:text-lg lg:text-xl"
                 />
                 <label className="sr-only" htmlFor="message">How can we help?</label>
                 <textarea
@@ -1315,7 +1315,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
                   onChange={onChange('message')}
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? 'message-error' : undefined}
-                  className="w-full bg-transparent border-b border-[#003B5C]/20 py-4 outline-none focus:border-[#00A8C5] transition-colors font-display text-base sm:text-lg lg:text-xl resize-none"
+                  className="w-full bg-transparent border-b border-primary/20 py-4 outline-none focus:border-accent transition-colors font-display text-base sm:text-lg lg:text-xl resize-none"
                 />
                 {errors.message ? <p id="message-error" className="text-sm text-red-600 -mt-6">{errors.message}</p> : null}
 
@@ -1339,7 +1339,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
                   <span className="text-xl lg:text-2xl font-display font-bold uppercase">
                     {status === 'submitting' ? 'Sending...' : 'Send Inquiry'}
                   </span>
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-[#003B5C] flex items-center justify-center group-hover:bg-[#00A8C5] group-hover:border-[#00A8C5] group-hover:text-white transition-all">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-primary flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all">
                     <ArrowRight size={18} />
                   </div>
                 </button>
@@ -1349,7 +1349,7 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
           </div>
 
           <div className="lg:col-span-12 mt-2 sm:mt-4 lg:mt-0 hidden lg:block">
-            <div className="w-full h-56 sm:h-64 lg:h-80 overflow-hidden rounded-2xl shadow-lg border border-[#003B5C]/10">
+            <div className="w-full h-56 sm:h-64 lg:h-80 overflow-hidden rounded-2xl shadow-lg border border-primary/10">
               <iframe
                 title="Yes It's Clean Location"
                 src="https://www.google.com/maps?q=123+Clean+Street,+Suite+400,+Boston,+MA+02110&output=embed"
@@ -1369,21 +1369,21 @@ const ContactSection = ({ onReadyForFocus }: { onReadyForFocus: (focusName: () =
 
 const Footer = () => {
   return (
-    <footer className="bg-zinc-100 text-[#003B5C] py-8 lg:py-12 border-t border-[#003B5C]/10">
+    <footer className="bg-surface text-primary py-8 lg:py-12 border-t border-primary/10">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center gap-4 text-center">
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#003B5C]/70">
-          <button type="button" onClick={() => scrollToId('services')} className="hover:text-[#00A8C5] transition-colors">Services</button>
-          <button type="button" onClick={() => scrollToId('reviews')} className="hover:text-[#00A8C5] transition-colors">Reviews</button>
-          <button type="button" onClick={() => scrollToId('faq')} className="hover:text-[#00A8C5] transition-colors">FAQ</button>
-          <button type="button" onClick={() => scrollToId('about')} className="hover:text-[#00A8C5] transition-colors">About</button>
-          <button type="button" onClick={() => scrollToId('contact')} className="hover:text-[#00A8C5] transition-colors">Contact</button>
-          <a href="#" className="hover:text-[#00A8C5] transition-colors">Privacy</a>
-          <a href="#" className="hover:text-[#00A8C5] transition-colors">Terms</a>
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[10px] sm:text-xs uppercase tracking-[0.25em] text-primary/70">
+          <button type="button" onClick={() => scrollToId('services')} className="hover:text-accent transition-colors">Services</button>
+          <button type="button" onClick={() => scrollToId('reviews')} className="hover:text-accent transition-colors">Reviews</button>
+          <button type="button" onClick={() => scrollToId('faq')} className="hover:text-accent transition-colors">FAQ</button>
+          <button type="button" onClick={() => scrollToId('about')} className="hover:text-accent transition-colors">About</button>
+          <button type="button" onClick={() => scrollToId('contact')} className="hover:text-accent transition-colors">Contact</button>
+          <a href="#" className="hover:text-accent transition-colors">Privacy</a>
+          <a href="#" className="hover:text-accent transition-colors">Terms</a>
         </div>
-        <div className="flex items-center gap-4 text-[#003B5C]/70">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:text-[#00A8C5] transition-colors"><Instagram size={18} /></a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="hover:text-[#00A8C5] transition-colors"><Facebook size={18} /></a>
-          <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter" className="hover:text-[#00A8C5] transition-colors"><Twitter size={18} /></a>
+        <div className="flex items-center gap-4 text-primary/70">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:text-accent transition-colors"><Instagram size={18} /></a>
+          <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="hover:text-accent transition-colors"><Facebook size={18} /></a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter" className="hover:text-accent transition-colors"><Twitter size={18} /></a>
         </div>
         <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em]">© 2026 YES IT'S CLEAN SERVICES</p>
       
@@ -1422,7 +1422,7 @@ export default function App() {
   } as const;
 
   return (
-    <div id="top" className="font-sans selection:bg-[#00A8C5] selection:text-white">
+    <div id="top" className="font-sans selection:bg-accent selection:text-white">
       <script
         type="application/ld+json"
         // JSON-LD: used by search engines to understand business data.
