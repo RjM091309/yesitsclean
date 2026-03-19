@@ -27,6 +27,16 @@
     @apply bg-bg text-primary;
   }
 
+  /* Make all buttons show a clickable cursor by default */
+  button {
+    cursor: pointer;
+  }
+
+  /* Keep disabled buttons non-clickable visually */
+  button:disabled {
+    cursor: not-allowed;
+  }
+
   /* Custom scrollbar (global) */
   :root {
     scrollbar-color: rgba(var(--color-accent-rgb), 0.55) rgba(var(--color-primary-rgb), 0.08);

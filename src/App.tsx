@@ -327,7 +327,7 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'
     },
     { 
-      id: '04', 
+      id: '03', 
       title: 'Specialized', 
       desc: 'Medical and industrial grade hygiene for sensitive environments.',
       image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800'
@@ -346,10 +346,11 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
             >
               Our Expertise
             </motion.span>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.8] text-primary">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.9] text-primary">
               SYSTEMATIC <br /> 
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">HYGIENE.</span>
             </h2>
+
           </div>
           <div className="max-w-md">
             <p className="text-primary/60 text-lg lg:text-xl leading-relaxed font-light mb-8">
@@ -369,48 +370,40 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {services.map((s, index) => (
-            <motion.div 
+            <motion.div
               key={s.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group relative border-b border-primary/10 py-8 lg:py-20 flex flex-col lg:flex-row justify-between items-start lg:items-center transition-all cursor-pointer"
+              className="group relative overflow-hidden border border-primary/10 bg-white rounded-2xl p-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl hover:shadow-primary/10"
             >
-              {/* Hover Image Reveal */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-500 z-20 hidden lg:block overflow-hidden rounded-2xl rotate-6 group-hover:rotate-0 scale-90 group-hover:scale-100 shadow-2xl">
-                <img 
-                  src={s.image} 
-                  alt={s.title} 
-                  className="w-full h-full object-cover"
+              {/* Always-visible service image */}
+              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-bg">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className="absolute inset-0 w-full h-full object-cover block"
                   referrerPolicy="no-referrer"
                 />
               </div>
 
-              <div className="flex items-baseline z-10 w-full pr-8 lg:pr-0">
-                <div className="flex flex-col">
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-display font-bold uppercase tracking-tighter text-primary group-hover:text-accent transition-colors duration-300 break-words">
+              <div className="relative z-10 p-6 sm:p-7 lg:p-8 flex flex-col h-full">
+                <div className="flex items-center justify-start gap-6">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold uppercase leading-none tracking-tighter text-primary group-hover:text-accent transition-colors duration-300 break-words">
                     {s.title}
                   </h3>
-                  <p className="text-primary/40 group-hover:text-primary/70 transition-colors max-w-sm mt-4 lg:hidden text-sm sm:text-base">
-                    {s.desc}
-                  </p>
                 </div>
-              </div>
 
-              <div className="hidden lg:flex items-center gap-12 z-10">
-                <p className="text-primary/40 group-hover:text-primary/70 transition-colors max-w-xs text-right font-light text-lg">
+                <p className="mt-4 text-primary/40 group-hover:text-primary/70 transition-colors text-sm sm:text-base leading-relaxed flex-1">
                   {s.desc}
                 </p>
-                <div className="w-16 h-16 rounded-full border border-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  <Plus className="group-hover:rotate-90 transition-transform" />
+
+                {/* Mobile Arrow */}
+                <div className="lg:hidden mt-auto pt-6 text-accent">
+                  <ArrowRight />
                 </div>
-              </div>
-              
-              {/* Mobile Arrow */}
-              <div className="lg:hidden absolute right-0 top-1/2 -translate-y-1/2 text-accent">
-                <ArrowRight />
               </div>
             </motion.div>
           ))}
@@ -560,10 +553,10 @@ const GallerySection = () => {
                 <button
                   type="button"
                   onClick={() => scrollToId('contact')}
-                  className="inline-flex items-center gap-3 text-primary font-bold uppercase tracking-widest group/button text-xs sm:text-sm"
+                  className="inline-flex items-center gap-3 text-primary font-bold uppercase tracking-widest group/button text-xs sm:text-sm cursor-pointer"
                 >
                   Get a quote
-                  <span className="w-10 h-10 rounded-full border border-primary flex items-center justify-center group-hover/button:bg-primary group-hover/button:text-white transition-all">
+                  <span className="w-10 h-10 rounded-full shrink-0 border border-primary flex items-center justify-center group-hover/button:bg-primary group-hover/button:text-white transition-colors">
                     <ArrowRight size={18} />
                   </span>
                 </button>
@@ -958,7 +951,7 @@ const FAQSection = () => {
                 <div key={item.id} className="rounded-3xl border border-primary/10 bg-white overflow-hidden">
                   <button
                     type="button"
-                    className="w-full text-left px-6 sm:px-8 py-6 flex items-start justify-between gap-6"
+                    className="w-full text-left px-6 sm:px-8 py-6 flex items-start justify-between gap-6 cursor-pointer"
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenId((prev) => (prev === item.id ? '' : item.id))}
@@ -1002,7 +995,7 @@ const FAQSection = () => {
               <button
                 type="button"
                 onClick={() => scrollToId('contact')}
-                className="mt-7 inline-flex items-center gap-4 bg-accent text-white px-7 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all shadow-lg shadow-black/10"
+                className="mt-7 inline-flex items-center gap-4 bg-accent text-white px-7 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all shadow-lg shadow-black/10 cursor-pointer"
               >
                 Start with a free estimate
                 <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
