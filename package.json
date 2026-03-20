@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
+    "dev": "vite --port=2850 --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
+    "pm2:dev": "pm2 start ecosystem.config.cjs",
+    "pm2:dev:stop": "pm2 stop yesitsclean-dev",
+    "pm2:dev:restart": "pm2 restart yesitsclean-dev",
+    "pm2:dev:logs": "pm2 logs yesitsclean-dev"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",

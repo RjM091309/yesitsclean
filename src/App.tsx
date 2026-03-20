@@ -73,13 +73,29 @@ const Navbar = () => {
         onClick={() => scrollToId('top')}
         aria-label="Go to top"
       >
-        <img
-          src="/images/logo1.png"
-          alt="Yes It's Clean Services LLC logo"
-          className="h-10 w-auto object-contain transition-transform group-hover:rotate-3"
-          loading="eager"
-          decoding="async"
-        />
+        <div className="relative inline-block">
+          {/* Base width is driven by logo2 so no layout shift during fade. */}
+          <img
+            src="/images/logo2.png"
+            alt="Yes It's Clean Services LLC logo"
+            aria-hidden={!isScrolled}
+            className={`h-10 w-auto object-contain scale-110 origin-left transition-opacity duration-300 group-hover:rotate-3 ${
+              isScrolled ? 'opacity-100' : 'opacity-0'
+            }`}
+            loading="eager"
+            decoding="async"
+          />
+          <img
+            src="/images/logo1.png"
+            alt="Yes It's Clean Services LLC logo"
+            aria-hidden={isScrolled}
+            className={`absolute left-0 top-0 h-10 w-auto object-contain scale-110 origin-left transition-opacity duration-300 group-hover:rotate-3 ${
+              isScrolled ? 'opacity-0' : 'opacity-100'
+            }`}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
         
       </button>
 
