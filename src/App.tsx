@@ -63,8 +63,8 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 lg:px-12 py-6 flex justify-between items-center ${
-        isScrolled ? 'bg-primary/90 backdrop-blur-xl border-b border-white/10 py-4' : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 lg:px-12 py-0 h-[88px] flex justify-between items-center ${
+        isScrolled ? 'bg-primary/90 backdrop-blur-xl border-b border-white/10 h-[72px]' : 'bg-transparent'
       }`}
     >
       <button
@@ -73,13 +73,13 @@ const Navbar = () => {
         onClick={() => scrollToId('top')}
         aria-label="Go to top"
       >
-        <div className="relative inline-block">
+        <div className="relative inline-flex items-center h-12">
           {/* Base width is driven by logo2 so no layout shift during fade. */}
           <img
             src="/images/logo2.png"
             alt="Yes It's Clean Services LLC logo"
             aria-hidden={!isScrolled}
-            className={`h-10 w-auto object-contain scale-110 origin-left transition-opacity duration-300 group-hover:rotate-3 ${
+            className={`h-10 w-auto object-contain scale-110 origin-left transition-opacity duration-300 ${
               isScrolled ? 'opacity-100' : 'opacity-0'
             }`}
             loading="eager"
@@ -89,7 +89,7 @@ const Navbar = () => {
             src="/images/logo1.png"
             alt="Yes It's Clean Services LLC logo"
             aria-hidden={isScrolled}
-            className={`absolute left-0 top-0 h-10 w-auto object-contain scale-110 origin-left transition-opacity duration-300 group-hover:rotate-3 ${
+            className={`absolute left-0 top-1/2 -translate-y-1/2 h-12 w-auto object-contain scale-110 origin-left transition-opacity duration-300 ${
               isScrolled ? 'opacity-0' : 'opacity-100'
             }`}
             loading="eager"
@@ -520,12 +520,10 @@ const GallerySection = () => {
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
           {projects.map((p, i) => (
-            <motion.article
+            <article
               key={p.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all"
+              className="group overflow-hidden rounded-3xl border border-primary/10 bg-white shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all ios-scroll-fix"
+              style={{ willChange: 'transform' }}
             >
               <div className="px-7 pt-7 pb-6 sm:px-8">
                 <p className="text-[10px] uppercase tracking-[0.35em] text-primary/45">Project</p>
@@ -584,7 +582,7 @@ const GallerySection = () => {
                   </span>
                 </button>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
 
@@ -796,12 +794,10 @@ const ReviewsSection = () => {
             aria-label="Reviews carousel"
           >
             {reviews.map((r, i) => (
-              <motion.article
+              <article
                 key={r.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
-                className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[48%] lg:w-[32%] group relative overflow-hidden rounded-3xl border border-primary/10 bg-gradient-to-b from-white to-bg p-8 lg:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 flex flex-col min-h-[360px]"
+                className="snap-start shrink-0 w-[85%] sm:w-[70%] md:w-[48%] lg:w-[32%] group relative overflow-hidden rounded-3xl border border-primary/10 bg-gradient-to-b from-white to-bg p-8 lg:p-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 flex flex-col min-h-[360px] ios-scroll-fix"
+                style={{ willChange: 'transform' }}
               >
               {/* Accent glow */}
               <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-accent/20 blur-3xl opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
@@ -864,7 +860,7 @@ const ReviewsSection = () => {
                   Premium Service
                 </p>
               </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>
