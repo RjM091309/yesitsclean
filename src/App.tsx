@@ -73,11 +73,14 @@ const Navbar = () => {
         onClick={() => scrollToId('top')}
         aria-label="Go to top"
       >
-        <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:rotate-12">Y</div>
-        <div className="flex flex-col">
-          <span className="font-display font-bold tracking-tighter text-xl uppercase text-white leading-none">Yes It's Clean</span>
-          <span className="text-[10px] uppercase tracking-[0.3em] text-accent font-medium">Premium Services</span>
-        </div>
+        <img
+          src="/images/logo1.png"
+          alt="Yes It's Clean Services LLC logo"
+          className="h-10 w-auto object-contain transition-transform group-hover:rotate-3"
+          loading="eager"
+          decoding="async"
+        />
+        
       </button>
 
       {/* Desktop Nav */}
@@ -208,7 +211,9 @@ const Hero = ({ onPrimaryCta }: { onPrimaryCta: () => void }) => {
           <img 
             src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200" 
             alt="Professional Cleaning Service" 
-            className="w-full h-full object-cover grayscale brightness-75 lg:brightness-100"
+            className="w-full h-full object-cover grayscale brightness-75 lg:brightness-100 ios-scroll-fix ios-no-filter"
+            loading="eager"
+            decoding="async"
             referrerPolicy="no-referrer"
             onError={(e) => {
               e.currentTarget.src = "https://picsum.photos/seed/cleaning/1200/800";
@@ -371,20 +376,20 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {services.map((s, index) => (
-            <motion.div
+          {services.map((s) => (
+            <div
               key={s.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative overflow-hidden border border-primary/10 bg-white rounded-2xl p-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl hover:shadow-primary/10"
+              className="group relative overflow-hidden border border-primary/10 bg-white rounded-2xl p-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-xl hover:shadow-primary/10 ios-scroll-fix"
+              style={{ willChange: 'transform' }}
             >
               {/* Always-visible service image */}
               <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-bg">
                 <img
                   src={s.image}
                   alt={s.title}
-                  className="absolute inset-0 w-full h-full object-cover block"
+                  className="absolute inset-0 w-full h-full object-cover block ios-scroll-fix"
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -405,7 +410,7 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
                   <ArrowRight />
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -522,11 +527,12 @@ const GallerySection = () => {
                     src={p.before}
                     alt={`${p.title} before cleaning`}
                     loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.src = 'https://picsum.photos/seed/before-clean/1200/900';
                     }}
-                    className="h-64 w-full object-cover grayscale sm:h-72 lg:h-80"
+                    className="h-64 w-full object-cover grayscale sm:h-72 lg:h-80 ios-scroll-fix ios-no-filter"
                   />
                 </div>
                 <div className="relative bg-white">
@@ -537,11 +543,12 @@ const GallerySection = () => {
                     src={p.after}
                     alt={`${p.title} after cleaning`}
                     loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.src = 'https://picsum.photos/seed/after-clean/1200/900';
                     }}
-                    className="h-64 w-full object-cover sm:h-72 lg:h-80"
+                    className="h-64 w-full object-cover sm:h-72 lg:h-80 ios-scroll-fix"
                   />
                 </div>
               </div>
@@ -1045,7 +1052,9 @@ const AboutSection = () => {
               <img 
                 src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=800" 
                 alt="Detail" 
-                className="w-full h-full object-cover grayscale"
+                className="w-full h-full object-cover grayscale ios-scroll-fix ios-no-filter"
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
             </motion.div>
@@ -1416,6 +1425,21 @@ export default function App() {
 
   return (
     <div id="top" className="font-sans selection:bg-accent selection:text-white">
+      <style>{`
+        /* iOS Safari: reduce image flicker during scroll + transforms */
+        @supports (-webkit-touch-callout: none) {
+          .ios-scroll-fix {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+          }
+          img.ios-no-filter {
+            filter: none !important;
+            -webkit-filter: none !important;
+          }
+        }
+      `}</style>
       <script
         type="application/ld+json"
         // JSON-LD: used by search engines to understand business data.
