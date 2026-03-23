@@ -35,6 +35,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -64,7 +65,9 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 lg:px-12 py-0 h-[88px] flex justify-between items-center ${
-        isScrolled ? 'bg-primary/90 backdrop-blur-xl border-b border-white/10 h-[72px]' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white/90 backdrop-blur-xl border-b border-primary/10 shadow-sm shadow-primary/5 h-[72px]'
+          : 'bg-transparent'
       }`}
     >
       <button
@@ -73,24 +76,13 @@ const Navbar = () => {
         onClick={() => scrollToId('top')}
         aria-label="Go to top"
       >
-        <div className="relative inline-flex items-center h-12">
-          {/* Base width is driven by logo2 so no layout shift during fade. */}
-          <img
-            src="/images/logo2.png"
-            alt="Yes It's Clean Services LLC logo"
-            aria-hidden={!isScrolled}
-            className={`h-10 w-auto object-contain scale-110 origin-left transition-opacity duration-300 ${
-              isScrolled ? 'opacity-100' : 'opacity-0'
-            }`}
-            loading="eager"
-            decoding="async"
-          />
+        <div className="relative inline-flex h-12 items-center">
           <img
             src="/images/logo1.png"
-            alt="Yes It's Clean Services LLC logo"
-            aria-hidden={isScrolled}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 h-12 w-auto object-contain scale-110 origin-left transition-opacity duration-300 ${
-              isScrolled ? 'opacity-0' : 'opacity-100'
+            alt=""
+            aria-hidden
+            className={`h-10 w-auto origin-left scale-110 object-contain transition-opacity duration-500 ease-out ${
+              isScrolled ? 'opacity-100' : 'pointer-events-none opacity-0'
             }`}
             loading="eager"
             decoding="async"
@@ -101,7 +93,11 @@ const Navbar = () => {
 
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-12">
-        <div className="flex gap-10 font-display font-medium uppercase text-[11px] tracking-[0.2em] text-white/70">
+        <div
+          className={`flex gap-10 font-display font-medium uppercase text-[11px] tracking-[0.2em] transition-colors duration-300 ${
+            isScrolled ? 'text-primary/70' : 'text-white/70'
+          }`}
+        >
           <a href="#top" className="hover:text-accent transition-colors relative group">
             Home
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
@@ -131,23 +127,36 @@ const Navbar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full"></span>
           </a>
         </div>
-        <a href="#contact" className="bg-white text-primary px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-lg shadow-black/10">
+        <a
+          href="#contact"
+          className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all shadow-lg ${
+            isScrolled
+              ? 'bg-primary text-white hover:bg-accent hover:text-white shadow-primary/15'
+              : 'bg-white text-primary hover:bg-accent hover:text-white shadow-black/10'
+          }`}
+        >
           Book Now
         </a>
       </div>
 
       {/* Mobile Menu Toggle */}
       <button 
-        className="md:hidden text-white p-2"
+        className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-expanded={isMobileMenuOpen}
         aria-controls={mobileMenuId}
         aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
       >
         <div className="w-6 h-5 flex flex-col justify-between">
-          <span className={`w-full h-[2px] bg-white transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-full h-[2px] bg-white transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-full h-[2px] bg-white transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span
+            className={`w-full h-[2px] transition-all ${isScrolled ? 'bg-primary' : 'bg-white'} ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}
+          ></span>
+          <span
+            className={`w-full h-[2px] transition-all ${isScrolled ? 'bg-primary' : 'bg-white'} ${isMobileMenuOpen ? 'opacity-0' : ''}`}
+          ></span>
+          <span
+            className={`w-full h-[2px] transition-all ${isScrolled ? 'bg-primary' : 'bg-white'} ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+          ></span>
         </div>
       </button>
 
@@ -350,8 +359,8 @@ const ServiceSection = ({ onViewAll }: { onViewAll: () => void }) => {
     { 
       id: '03', 
       title: 'Specialized', 
-      desc: 'Medical and industrial grade hygiene for sensitive environments.',
-      image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800'
+      desc: 'Targeted care with BioGreen-formulated products—safe for your family, tough on buildup.',
+      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=800'
     }
   ];
 
